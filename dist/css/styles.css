@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; }
+
+header .jumbotron {
+  background-image: url("../img/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  filter: grayscale(53%) contrast(99%) hue-rotate(357deg);
+  -webkit-filter: grayscale(53%) contrast(99%) hue-rotate(357deg); }
+  header .jumbotron .wrapper {
+    width: 70%; }
+    header .jumbotron .wrapper #tabsHead .open {
+      display: block; }
+    header .jumbotron .wrapper h1 {
+      color: #111;
+      text-transform: uppercase;
+      padding: 30px;
+      border-radius: 3px;
+      position: relative;
+      text-align: center; }
+    header .jumbotron .wrapper .actions {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      header .jumbotron .wrapper .actions .action {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #fff;
+        opacity: .7;
+        width: 235px;
+        height: 235px;
+        border-radius: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-transition: .3s;
+        transition: .3s; }
+        header .jumbotron .wrapper .actions .action .action_content {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          width: 50%;
+          -ms-flex-pack: distribute;
+          justify-content: space-around; }
+          header .jumbotron .wrapper .actions .action .action_content .icon {
+            margin-bottom: 40px; }
+          header .jumbotron .wrapper .actions .action .action_content .action_text {
+            text-align: center; }
+        header .jumbotron .wrapper .actions .action .toggle_action {
+          display: none; }
+      header .jumbotron .wrapper .actions .action:hover {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #009e82; }
+
+main {
+  background-image: url("../img/mainBack.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  main .wrapper {
+    width: 70%;
+    padding: 3% 0;
+    font-size: large; }
+    main .wrapper .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); }
+      main .wrapper .tabs .action {
+        text-align: center; }
+      main .wrapper .tabs .tab {
+        position: relative;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: #111;
+        cursor: pointer;
+        font-size: larger; }
+      main .wrapper .tabs .tab_active, main .wrapper .tabs .tab:hover {
+        color: #009e82; }
+      main .wrapper .tabs .tab_active:after {
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: #009e82; }
+
+.tabs_content_head, .tabs_content {
+  display: none;
+  width: 60%;
+  margin: 20px 0; }
+  .tabs_content_head .description, .tabs_content_head .tittle_tab, .tabs_content .description, .tabs_content .tittle_tab {
+    margin: 3% 0; }
+  .tabs_content_head ol, .tabs_content ol {
+    counter-reset: myCounter;
+    margin: 3% 0; }
+    .tabs_content_head ol li, .tabs_content ol li {
+      list-style: none; }
+    .tabs_content_head ol li:before, .tabs_content ol li:before {
+      counter-increment: myCounter;
+      content: counter(myCounter);
+      margin-right: 10px;
+      color: #009e82;
+      font-size: -webkit-xxx-large; }
+  .tabs_content_head .continue, .tabs_content .continue {
+    background: #009e82;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: large;
+    width: 150px;
+    height: 60px;
+    border-radius: 3px; }
+
+.default {
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: none;
+  opacity: .2; }
+
+.active {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 1; }
+
+.correct_heigth {
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
+  height: max-content !important; }
+
+@media (max-width: 768px) {
+  header .jumbotron .wrapper {
+    width: 85%; }
+    header .jumbotron .wrapper .actions .tabs_content_head {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content; }
+    header .jumbotron .wrapper .actions .action {
+      border-radius: 0;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      height: -webkit-max-content;
+      height: -moz-max-content;
+      height: max-content;
+      padding: 10px;
+      margin: 10px 0; }
+      header .jumbotron .wrapper .actions .action .action_content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        width: 85%; }
+        header .jumbotron .wrapper .actions .action .action_content .icon {
+          margin: 0;
+          width: 50px; }
+      header .jumbotron .wrapper .actions .action .toggle_action {
+        display: block;
+        background-color: transparent;
+        border: none;
+        outline: none; } }

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+$colorBlack: #111;
+$colorWhite: #fff;
+$colorGreen: #009e82;
+
+@mixin bgc($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center; 
+}
+
+header {		
+	.jumbotron {
+		@include bgc("../img/banner.png");
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		filter: grayscale(53%) contrast(99%) hue-rotate(357deg);
+		-webkit-filter: grayscale(53%) contrast(99%) hue-rotate(357deg);
+		.wrapper {
+			width: 70%;
+			#tabsHead {
+				.open {
+					display: block;
+				}
+			}
+			h1 {
+				color: $colorBlack;
+				text-transform: uppercase;
+				padding: 30px;
+				border-radius: 3px;
+				position: relative;
+				text-align: center;
+			}
+			.actions {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				.action {
+					box-sizing: border-box;
+					background-color: $colorWhite;
+					opacity: .7;
+					width: 235px;
+					height: 235px;
+					border-radius: 50%;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					transition: .3s;
+					.action_content {
+				    	display: flex;
+				    	flex-direction: column;
+					    align-items: center;
+					    width: 50%;
+					    justify-content: space-around;
+					    .icon {
+							margin-bottom: 40px
+						}
+						.action_text {
+				    		text-align: center;
+				    	}
+					}
+					.toggle_action {
+						display: none;
+					}
+				}
+				.action:hover {
+					cursor: pointer;
+					padding: 10px;
+					border: 1px solid $colorGreen;
+				}
+			}
+		}
+	}
+}
+main {
+	@include bgc("../img/mainBack.png"); 
+	display: flex;
+	justify-content: center;
+	.wrapper {
+		width: 70%;
+		padding: 3% 0;
+		font-size: large;
+		.tabs {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			.action {
+				text-align: center;
+			}
+			.tab {
+				position: relative;
+				background: transparent;
+				outline: none;
+				border: none;
+				color: $colorBlack;
+				cursor: pointer;
+				font-size: larger;
+			}
+			.tab_active, .tab:hover {
+				color: $colorGreen;
+			}
+			.tab_active:after {
+				position: absolute;
+				left: 0;
+				bottom: -10px;
+				content: '';
+				width: 100%;
+				height: 4px;
+				background-color: $colorGreen;
+			}
+		}
+	}
+}
+.tabs_content_head, .tabs_content {
+	display: none;
+	width: 60%;
+	margin: 20px 0;
+	.description, .tittle_tab {
+		margin: 3% 0;
+	}
+	ol {
+		counter-reset: myCounter;
+		margin: 3% 0;
+		li {
+			list-style: none;
+		}
+		li:before {
+			counter-increment: myCounter;
+		    content: counter(myCounter);
+		    margin-right: 10px;
+		    color: $colorGreen;
+		    font-size: -webkit-xxx-large;
+		}
+	}
+	.continue {
+		background: $colorGreen;
+		outline: none;
+		border: none;
+		color: $colorWhite;
+		cursor: pointer;
+		font-size: large;
+		width: 150px;
+		height: 60px;
+		border-radius: 3px;
+	}
+}
+.default {
+	transition: .2s;
+	display: none;
+	opacity: .2;
+}
+.active {
+	transition: .5s;
+	opacity: 1;
+}
+.correct_heigth {
+	height: max-content !important;
+}
+
+@media (max-width: 768px)  {
+	header {
+		.jumbotron {
+			.wrapper {
+				width: 85%;
+				.actions {
+					.tabs_content_head {
+						width: max-content;
+					}
+					.action {
+					    border-radius: 0;
+					    width: 100%;
+					    display: flex;
+					    flex-direction: row;
+					    justify-content: space-around;
+					    height: max-content;
+					    padding: 10px;
+					    margin: 10px 0;
+					    .action_content {
+					    	flex-direction: row;
+					    	justify-content: space-around;
+					    	width: 85%;
+							.icon {
+								margin: 0;
+								width: 50px;								
+							}
+					    }
+					    .toggle_action {
+					    	display: block;
+					    	background-color: transparent;
+					    	border: none;
+					    	outline: none;
+					    }
+					}
+				}
+			}
+		}
+	}
+}
