@@ -61,14 +61,16 @@ function changeTab() {
 	}, 500);
  }
 
-//--- функция скролла ---
+//--- функция скролла и задания стилей активным табам ---
  const scrolling = () => {
  	const tabContent = document.getElementsByClassName('tabs_content');
 	const attr = event.target.closest('.action').getAttribute('data-tab');
+	const action = document.getElementsByClassName('action_main');
 	const tab = document.getElementsByClassName('tab');
 	let position = window.pageYOffset;
 	const getCoords = elem => elem.getBoundingClientRect().top + pageYOffset;
 	Array.prototype.forEach.call(tabContent, (el, i) => {
+		action[i].classList.add('action_active');
 		tab[i].classList.add('tab_active');
 		changeClassTab(el, 'block');
 		if (i === Number(attr)) {
@@ -82,6 +84,7 @@ function changeTab() {
 			}, 5);		
 		} 
 		else {
+			action[i].classList.remove('action_active');
 			tab[i].classList.remove('tab_active');
 			changeClassTab(el, 'none');
 		}

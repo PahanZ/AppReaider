@@ -62,16 +62,18 @@ var bacgroundTabChange = function bacgroundTabChange() {
 	}, 500);
 };
 
-//--- функция скролла ---
+//--- функция скролла и задания стилей активным табам ---
 var scrolling = function scrolling() {
 	var tabContent = document.getElementsByClassName('tabs_content');
 	var attr = event.target.closest('.action').getAttribute('data-tab');
+	var action = document.getElementsByClassName('action_main');
 	var tab = document.getElementsByClassName('tab');
 	var position = window.pageYOffset;
 	var getCoords = function getCoords(elem) {
 		return elem.getBoundingClientRect().top + pageYOffset;
 	};
 	Array.prototype.forEach.call(tabContent, function (el, i) {
+		action[i].classList.add('action_active');
 		tab[i].classList.add('tab_active');
 		changeClassTab(el, 'block');
 		if (i === Number(attr)) {
@@ -84,6 +86,7 @@ var scrolling = function scrolling() {
 				}
 			}, 5);
 		} else {
+			action[i].classList.remove('action_active');
 			tab[i].classList.remove('tab_active');
 			changeClassTab(el, 'none');
 		}

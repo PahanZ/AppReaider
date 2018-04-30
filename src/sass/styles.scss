@@ -58,7 +58,8 @@ header {
 					flex-direction: column;
 					align-items: center;
 					justify-content: center;
-					transition: .3s;
+					position: relative;
+					cursor: pointer;
 					.action_content {
 				    	display: flex;
 				    	flex-direction: column;
@@ -76,10 +77,19 @@ header {
 						display: none;
 					}
 				}
-				.action:hover {
-					cursor: pointer;
-					padding: 10px;
-					border: 1px solid $colorGreen;
+				.action::before {
+				  content: '';
+				  position: absolute;
+				  left: 5px;
+				  top: 5px;
+				  right: 5px;
+				  bottom: 5px;
+				  border: 1px solid transparent;
+				  border-radius: 50%;
+				  transition: .3s;
+				}
+				.action:hover::before { 
+					border-color: $colorGreen; 
 				}
 			}
 		}
@@ -93,11 +103,21 @@ main {
 		width: 70%;
 		padding: 3% 0;
 		font-size: large;
+		hr {
+		    width: 100%;
+		    position: absolute;
+		    left: 0;
+		    background: #c3bdbd;
+		    border: none;
+		    height: 1px;
+		}
 		.tabs {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			.action {
 				text-align: center;
+				position: relative;
+				height: 50px;
 			}
 			.tab {
 				position: relative;
@@ -111,13 +131,13 @@ main {
 			.tab_active, .tab:hover {
 				color: $colorGreen;
 			}
-			.tab_active:after {
+			.action_active:after {
 				position: absolute;
 				left: 0;
-				bottom: -10px;
+				bottom: 0px;
 				content: '';
 				width: 100%;
-				height: 4px;
+				height: 2px;
 				background-color: $colorGreen;
 			}
 		}
